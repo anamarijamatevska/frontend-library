@@ -7,7 +7,7 @@ import Header from '../Header/header';
 import BookAdd from '../Books/BookAdd/bookAdd';
 import BookEdit from "../Books/BookEdit/bookEdit";
 import EShopService from "../../repository/eshopRepository";
-import {CATEGORIES, COUNTRY, AUTHOR} from "../../constants";
+import {CATEGORIES, COUNTRY, AUTHOR, DEFAULT_BOOK} from "../../constants";
 
 class App extends Component {
 
@@ -84,10 +84,9 @@ class App extends Component {
     loadBooks = () => {
       EShopService.fetchBooks()
           .then((data) => {
-              console.log(data.data)
+              data?.data?.push(DEFAULT_BOOK);
               this.setState({
                   books: data.data.sort((a,b) => {
-                      console.log(a,b)
                       return a.name - b.name;
                   })
               })

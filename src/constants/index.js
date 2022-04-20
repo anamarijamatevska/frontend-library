@@ -20,3 +20,11 @@ export const AUTHOR = {
     "surname": "Matevska",
     "country": 99999
 }
+
+export const DEFAULT_BOOK = {
+    "id": 99999,
+    "name": "Inferno",
+    "availableCopies": 17,
+    "category": "NOVEL",
+    "author": AUTHOR
+}

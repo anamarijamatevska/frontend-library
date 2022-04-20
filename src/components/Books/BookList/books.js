@@ -1,6 +1,7 @@
 import React from 'react';
 import BookTerm from '../BookTerm/bookTerm';
 import {Link} from 'react-router-dom';
+import DefaultBook from "./defaultBook";
 
 const books = (props) => {
     return (
@@ -17,11 +18,16 @@ const books = (props) => {
                         </tr>
                         </thead>
                         <tbody>
-                        {props.books.map((term) => {
-                            return (
-                                <BookTerm term={term} onDelete={props.onDelete} onEdit={props.onEdit} onDecrement={props.onDecrement} />
-                            );
-                        })}
+                        <>
+                            {props.books.length === 0 && (
+                                <DefaultBook onDelete={props.onDelete} onEdit={props.onEdit} onDecrement={props.onDecrement} />
+                            )}
+                            {props.books.map((term) => {
+                                return (
+                                    <BookTerm term={term} onDelete={props.onDelete} onEdit={props.onEdit} onDecrement={props.onDecrement} />
+                                );
+                            })}
+                        </>
                         </tbody>
                     </table>
                 </div>
